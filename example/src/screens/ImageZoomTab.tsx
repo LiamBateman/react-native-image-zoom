@@ -60,6 +60,7 @@ export const ImageZoomTab = () => {
         maxScale={MAX_SCALE}
         setIsZoomed={setIsZoomed}
         style={animatedStyle}
+        snapback={false}
       />
       {isZoomed ? (
         <>

@@ -43,6 +43,7 @@ export const useGestures = ({
   isPinchEnabled = true,
   isSingleTapEnabled = false,
   isDoubleTapEnabled = false,
+  snapback = true,
   onInteractionStart,
   onInteractionEnd,
   onPinchStart,
@@ -72,6 +73,11 @@ export const useGestures = ({
 
   const reset = useCallback(() => {
     'worklet';
+    if(!snapback)
+    {
+      //dont reset if snapback is false
+      return;
+    }
     const interactionId = getInteractionId();
 
     savedScale.value = 1;

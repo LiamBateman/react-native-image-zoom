@@ -140,6 +140,11 @@ export type ZoomProps = {
    */
   isSingleTapEnabled?: boolean;
   /**
+   * Determines whether the image will snap back to its original position after a pan gesture and scale is < 1
+   * @default true
+   */
+  snapback?: boolean;
+  /**
    * Enables or disables the double tap feature.
    * When enabled, this feature prevents automatic reset of the zoom to its initial position, allowing continuous zooming.
    * To return to the initial position, double tap again or zoom out to a scale level less than 1.
@@ -251,6 +256,7 @@ export type ZoomableUseGesturesProps = Pick<
     | 'isSingleTapEnabled'
     | 'isDoubleTapEnabled'
     | 'onInteractionStart'
+    | 'snapback'
     | 'onInteractionEnd'
     | 'onPinchStart'
     | 'onPinchEnd'

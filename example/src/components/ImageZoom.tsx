@@ -21,12 +21,13 @@ type Props = {
   scale?: SharedValue<number>;
   minScale?: number;
   maxScale?: number;
+  snapback?: boolean;
   ref: ForwardedRef<ImageZoomRef>;
   setIsZoomed: (value: boolean) => void;
   style?: ImageZoomProps['style'];
 };
 const ImageZoom: ForwardRefRenderFunction<ImageZoomRef, Props> = (
-  { uri, scale, minScale = 0.5, maxScale = 5, setIsZoomed, style },
+  { uri, scale, minScale = 0.5, maxScale = 5, setIsZoomed, style, snapback },
   ref
 ) => {
   const onZoom = (zoomType?: ZOOM_TYPE) => {
@@ -54,6 +55,7 @@ const ImageZoom: ForwardRefRenderFunction<ImageZoomRef, Props> = (
       doubleTapScale={3}
       isSingleTapEnabled
       isDoubleTapEnabled
+      snapback={snapback}
       onInteractionStart={() => {
         console.log('onInteractionStart');
         onZoom();
